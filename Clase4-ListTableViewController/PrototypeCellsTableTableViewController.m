@@ -48,36 +48,36 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = nil;
+    //UITableViewCell *cell = nil;
     if(indexPath.section == 0){
         if(indexPath.row == 0){
-            cell=[tableView dequeueReusableCellWithIdentifier:@"button cell" forIndexPath:indexPath];
+            ButtonTableViewCell *cell= (ButtonTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"button cell" forIndexPath:indexPath];
             cell.backgroundColor = [UIColor greenColor];
-            //[cell.button setTitle =@"Seccion 0 row 0" forState:UIControlStateNormal];
+            [cell.button setTitle:@"Seccion 0 row 0" forState:UIControlStateNormal];
             return cell;
         }
         else if(indexPath.row == 1){
-            cell=[tableView dequeueReusableCellWithIdentifier:@"label cell" forIndexPath:indexPath];
-            //cell.label.text=@"De la seccion 0";
+            LabelTableViewCell *cell=(LabelTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"label cell" forIndexPath:indexPath];
+            cell.label.text = @"De la seccion 0";
             return cell;
         }
     }
     else if(indexPath.section == 1){
         if(indexPath.row == 0){
-            cell=[tableView dequeueReusableCellWithIdentifier:@"button cell" forIndexPath:indexPath];
+            ButtonTableViewCell *cell= (ButtonTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"button cell" forIndexPath:indexPath];
             cell.backgroundColor = [UIColor orangeColor];
-            //[cell.button setTitle =@"Seccion 1 row 0" forState:UIControlStateNormal];
+            [cell.button setTitle:@"Seccion 1 row 0" forState:UIControlStateNormal];
             return cell;
         }
         else if(indexPath.row == 1){
-            cell=[tableView dequeueReusableCellWithIdentifier:@"button cell" forIndexPath:indexPath];
+            ButtonTableViewCell *cell= (ButtonTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"button cell" forIndexPath:indexPath];
             cell.backgroundColor = [UIColor blueColor];
-            //[cell.button setTitle =@"Seccion 1 row 1" forState:UIControlStateNormal];
+            [cell.button setTitle:@"Seccion 1 row 1" forState:UIControlStateNormal];
             return cell;
         }
         if(indexPath.row == 2){
-            cell=[tableView dequeueReusableCellWithIdentifier:@"label cell" forIndexPath:indexPath];
-            //cell.label.text=@"De la seccion 2";
+            LabelTableViewCell *cell=(LabelTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"label cell" forIndexPath:indexPath];
+            cell.label.text=@"De la seccion 2";
             return cell;
         }
     }
@@ -85,6 +85,9 @@
     return nil;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return [NSString stringWithFormat:@"Header de la seccion %@", @(section).stringValue];
+}
 
 /*
 // Override to support conditional editing of the table view.
